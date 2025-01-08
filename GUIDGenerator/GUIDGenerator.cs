@@ -14,15 +14,14 @@ namespace GUIDGenerator
             InitializeComponent();
         }
 
+        //Base64 cannot have hyphens
         private void checkBox1_Click(object sender, EventArgs e)
         {
-            //checkBox1.Checked = !checkBox6.Checked;
             checkBox6.Checked = false;
         }
 
         private void checkBox6_Click(object sender, EventArgs e)
         {
-            //checkBox6.Checked = !checkBox1.Checked;
             checkBox1.Checked = false;
         }
 
@@ -34,7 +33,7 @@ namespace GUIDGenerator
                 braket1 = "{";
                 braket2 = "}";
             }
-            else 
+            else
             {
                 braket1 = "";
                 braket2 = "";
@@ -56,17 +55,12 @@ namespace GUIDGenerator
                 commas = "";
             }
 
-            if (!checkBox6.Checked) //Base64
-            {
-                Convert.﻿﻿ToBase64String﻿﻿﻿(﻿﻿Guid.﻿﻿NewGuid﻿﻿﻿(﻿﻿﻿)﻿﻿.﻿﻿ToByteArray﻿﻿﻿(﻿﻿﻿)﻿﻿﻿)﻿﻿ .﻿﻿Substring﻿﻿﻿(﻿﻿﻿0﻿﻿, ﻿﻿22﻿﻿﻿)﻿﻿ .﻿﻿Replace﻿﻿﻿(﻿﻿﻿"﻿/﻿"﻿﻿, ﻿﻿"﻿_﻿"﻿﻿﻿)﻿﻿ .﻿﻿Replace﻿﻿﻿(﻿﻿﻿"﻿+﻿"﻿﻿, ﻿﻿"﻿-﻿"﻿﻿﻿)﻿﻿﻿;﻿﻿﻿﻿﻿
-            }
-
             //Make sure there are only numbers in the GUID count selector
             if (System.Text.RegularExpressions.Regex.IsMatch(textBox2.Text, "[^0-9]"))
             {
                 textBox1.Text = "Invalid Selection - Numbers only please.";
             }
-            else 
+            else
             {
                 int GUIDcount = int.Parse(textBox2.Text);
                 if (GUIDcount <= 1000)
@@ -76,18 +70,16 @@ namespace GUIDGenerator
 
                         if (checkBox6.Checked) //Base64
                         {
-                            checkBox6.Checked = !checkBox1.Checked;
-
                             List_o_GUIDS.Add(quotes + braket1 + Convert.ToBase64String﻿﻿﻿(Guid.NewGuid﻿﻿﻿()
-                                .ToByteArray﻿﻿﻿()).Substring﻿﻿﻿(0, 22).Replace﻿﻿﻿("﻿/﻿", "﻿_﻿").Replace﻿﻿﻿("﻿+﻿", "﻿-﻿")
+                                .ToByteArray﻿﻿﻿()).Substring﻿﻿﻿(0, 22).Replace﻿﻿﻿("﻿/﻿", "﻿_﻿").Replace﻿﻿﻿("﻿+﻿", "﻿-﻿") + "=="
                                 + braket2 + quotes + commas);
                         }
                         else if (checkBox1.Checked) //Hyphens
                         {
                             checkBox1.Checked = !checkBox6.Checked;
                             List_o_GUIDS.Add(quotes + braket1 + Guid.NewGuid().ToString() + braket2 + quotes + commas);
-                        }   
-                        else 
+                        }
+                        else
                         {
                             List_o_GUIDS.Add(quotes + braket1 + Guid.NewGuid().ToString("N") + braket2 + quotes + commas);
                         }
@@ -100,7 +92,7 @@ namespace GUIDGenerator
                         {
                             textBox1.Text = string.Join(Environment.NewLine, List_o_GUIDS);
                         }
-                        
+
                     }
                 }
                 //I could probably make this bigger, 1000 is purely arbitary.
@@ -116,7 +108,5 @@ namespace GUIDGenerator
         {
             Clipboard.SetDataObject(textBox1.Text);
         }
-
-
     }
 }
