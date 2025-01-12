@@ -7,3 +7,6 @@ The format was copied, but I wrote all the code, so feel free to take it and use
 Sources so far:  
 GUID Generator: https://guidgenerator.com/  
 Percentage Calculator: https://percentagecalculator.net/  
+Your Basic Calculator: Modeled after the generic caluculator pre-installed on Windows  
+
+Please note, they are all works in progress, and none are currently complete.  

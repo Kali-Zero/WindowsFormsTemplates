@@ -47,7 +47,7 @@ namespace YourBasicCalculator
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {   //Back (delte)
+        {   //Back (delete)
             textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
             if (textBox1.Text.Length <= 0)
             {
@@ -143,8 +143,15 @@ namespace YourBasicCalculator
             operation = "Divide";
         }
         private void button17_Click(object sender, EventArgs e)
-        {   //+- (I don't know what this button does)
-
+        {   //+- (change sign: positive/negative)
+            if (textBox1.Text[0] == '-') 
+            {
+                textBox1.Text = textBox1.Text.Remove(0, 1);
+            }
+            else
+            {
+                textBox1.Text = "-" + textBox1.Text;
+            }
         }
 
         //DO THE MATH!
