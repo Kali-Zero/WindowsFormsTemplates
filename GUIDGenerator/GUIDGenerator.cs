@@ -92,7 +92,6 @@ namespace GUIDGenerator
                         {
                             textBox1.Text = string.Join(Environment.NewLine, List_o_GUIDS);
                         }
-
                     }
                 }
                 //I could probably make this bigger, 1000 is purely arbitary.

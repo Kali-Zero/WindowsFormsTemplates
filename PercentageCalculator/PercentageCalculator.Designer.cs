@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PercentageCalculator));
+            System.ComponentModel.ComponentResourceManager resources = 
+                new System.ComponentModel.ComponentResourceManager(typeof(PercentageCalculator));
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
